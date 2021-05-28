@@ -18,5 +18,11 @@ def articles():
     articles = Articles()
     return render_template('articles.html', articles = articles)
 
+@app.route('/article/<id>', methods = ['GET', 'POST'])
+def article():
+    articles = Articles()
+    article = articles[int(id)-1]
+    return render_template('article.html', article = article)
+
 if __name__ == '__main__':
     app.run(port = 5000)
